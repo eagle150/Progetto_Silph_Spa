@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Inoltro Richiesta</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Richiesta</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div>
+		<i>Inserisci i dati della richiesta</i>
+		<form th:action="@{/salvaRichiesta}" th:object="${utente}" method="post">
+			<table>
+				<tr>
+					<td>Nome utente: </td>
+					<td><input required type="text" th:field="*{nome}"></td>
+					<!-- <td th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></td>  -->
+				</tr>
+				<tr>
+					<td>Cognome utente: </td>
+					<td><input required type="text" th:field="*{cognome}"></td>
+					<!--<td th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></td>  -->
+				</tr>
+				<tr>
+					<td>Email utente: </td>
+					<td><input required type="text" th:field="*{email}"></td>
+					<!--<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>  -->
+				</tr>
+				<tr>
+					<td>Nota: </td>
+					<td><input th:field="${richiesta.descrizione}" type="text"
+						  placeholder="Scrivi nota opzionale..."></td>
+				</tr>
+			</table>
+			<button type="submit">Invia dati</button>
+		</form>
+	</div>
+</body>
+</html>

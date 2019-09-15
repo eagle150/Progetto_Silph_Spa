@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Inserimento Fotografo</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/homeFunzionario}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Inserimento fotografo</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div><i>Inserisci i dati</i></div>
+	<br/>
+	
+	<form th:action="@{/fotografo}" method="POST" th:object="${fotografo}">
+		<table>
+			<tr> <!-- riga -->
+				<td>Nome:</td> <!-- colonna -->
+				<td><input type="text" th:field="*{nome}" /></td>
+				<td th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></td>
+			</tr>
+			<tr>
+				<td>Cognome:</td>
+				<td><input type="text" th:field="*{cognome}" /></td>
+				<td th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></td>
+			</tr>
+			<tr>
+				<td>
+					<button type="submit">Invio</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

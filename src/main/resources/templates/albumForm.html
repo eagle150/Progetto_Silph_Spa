@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Inserimento Album</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Inserimento album</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div><i>Inserisci i dati</i></div>
+	<br/>
+	
+	<form th:action="@{'/salvaAlbum/'+${fotografo}}">
+		Nome: <input type="text" th:field="${album.nome}" required>
+		<br/>
+		<br/>
+		<button type="submit">Invio</button>
+	</form>
+</body>
+</html>

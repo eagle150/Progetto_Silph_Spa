@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>HomePage</title>
+</head>
+<body>	
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<span>&emsp;</span>
+		<a th:href="@{/login}">LoginFunzionario</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Silph S.p.a.</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div align="center">
+		<form th:action="@{/search}" th:object="${search_query}" method="post" class="searchbar">
+			<select th:field="*{type}">
+				<optgroup>
+					<option title="fotografia" value="Fotografia">Fotografia</option>
+					<option title="fotografo" value="Fotografo">Fotografo</option>
+					<option title="album" value="Album">Album</option>
+				</optgroup>
+			</select>
+			<input th:field="*{query}" type="text" placeholder="Cerca...">
+			<br/>
+			<button type="submit"><img src="/icons/search.png"></img></button>
+			
+			<br/>
+			<span class="invalid_message" th:if="${#fields.hasErrors('query')}" th:errors="*{query}"></span>
+		</form>
+	</div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div>Visualizza tutte le foto e seleziona quelle che desideri accedendo alla <a th:href="@{/gallery}">gallery</a></div>
+</body>
+</html>

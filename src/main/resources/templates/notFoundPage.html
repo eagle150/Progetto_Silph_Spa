@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Not Found</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Not Found...</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div class="notFound_message" th:text="${notFoundMessage}"></div>
+	<div th:switch="${notFoundType}">
+		<span class="notFound_suggest" th:case="'Fotografia'">
+			Visualizza la <a th:text="gallery" th:href="@{/gallery}"></a></span>
+		
+		<span class="notFound_suggest" th:case="'Fotografo'">
+			Visualizza i <a th:text="fotografi" th:href="@{/fotografi}"></a></span>
+		
+		<span class="notFound_suggest" th:case="'Album'">
+			Visualizza gli <a th:text="album" th:href="@{/albums}"></a></span>
+	</div>
+</body>
+</html>

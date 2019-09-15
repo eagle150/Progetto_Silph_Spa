@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Richiesta Completata</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Silph Spa</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div class="ok_message">Richiesta correttamente salvata!</div>
+	<br/>
+	<div>Questo e' un elenco delle tue richieste
+		<ul>
+			<li th:each="richiesta : ${richiesteUtente}" th:object="${richiesta}">
+				<a th:href="@{'/richiesta/'+*{id}}" th:text="'Richiesta '+*{id}">link_richiesta</a>
+		</ul>
+	</div>
+	
+</body>
+</html>

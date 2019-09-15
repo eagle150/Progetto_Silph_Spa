@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Conferma Richiesta</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Richiesta</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div><i>Dati della richiesta</i></div>
+	<div>
+		<table>
+			<tr>
+				<td>Nome utente: </td>
+				<td th:text="${utente.nome}">nome_utente</td>
+			</tr>
+			<tr>
+				<td>Cognome utente: </td>
+				<td th:text="${utente.cognome}">cognome_utente</td>
+			</tr>
+			<tr>
+				<td>Email utente: </td>
+				<td th:text="${utente.email}">email_utente</td>
+			</tr>
+			<tr>
+				<td>Nota: </td>
+				<td th:text="${richiesta.descrizione}">descrizione_richiesta</td>
+			</tr>
+			<tr>
+				<td>Data: </td>
+				<td th:text="${#temporals.format(richiesta.dataInserimento, 'dd-MM-yyyy')}">data_album></td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<ul>
+			<li th:each="fotografia : ${fotografie}" th:object="${fotografia}">
+				<span th:text="*{nome}"></span>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

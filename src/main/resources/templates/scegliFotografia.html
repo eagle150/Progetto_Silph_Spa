@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Inserimento Nuova Fotografia</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/homeFunzionario}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Scelta Fotografia</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div><i>Seleziona la foto per salvarla nel db</i></div>
+	<br/>
+	
+	<form th:action="@{'/upload/'+${fotografo}+'/'+${album}}" enctype="multipart/form-data" method="post">
+		Nome foto: <input type="text" th:field="${fotografia.nome}" required>
+		<br/>
+		<input type="file" name="image_file" accept=".jpg, .jpeg" required>
+		<br/>
+		<br/>
+		<button type="submit">Carica</button>
+	</form>
+</body>
+</html>

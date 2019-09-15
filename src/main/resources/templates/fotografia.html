@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>ShowFotografiaPage</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Fotografia</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div th:if="${isASearch}"><h3 class="ok_message">Fotografia trovata!</h3></div>
+	<div th:text="'Nome: '+${fotografia.nome}">foto_nome</div>
+	<div>
+		Fotografo: <a th:href="@{'/fotografo/'+${fotografia.fotografo.id}}" th:text="${fotografia.fotografo.nome}">foto_fotografo</a>
+	</div>
+	<div>
+		Album: <a th:href="@{'/album/'+${fotografia.album.id}}" th:text="${fotografia.album.nome}">foto_album</a>
+	</div>
+	<br/>
+
+	<img th:src="@{${fotoPath}}" class="single_image">
+</body>
+</html>

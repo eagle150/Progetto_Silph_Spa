@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Albums Page</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Albums</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<ul>
+		<li th:each="album : ${albums}" th:object="${album}">
+			<a th:text="*{nome}" th:href="@{'/album/'+*{id}}"></a>
+		</li>
+	</ul>
+</body>
+</html>
