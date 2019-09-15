@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+body {
+	/*background-image: url("/css/MODhomePageImage.jpg");*/
+	/*opacity: 0.4;*/
+}
+
+.topnavbar {
+	background-image: url("/css/MODhomePageImage.jpg");
+	height: 170px;
+}
+/*.topnavbar title {
+	background-color: lightgrey;
+	font-family: cursive;
+	float: center;
+	color: orange;
+	font-size: xx-large;
+	font-style: bold;
+}*/
+.topnavbar a {
+	background-color: lightgrey;
+	font-size: large;
+	font-family: cursive;
+}
+
+.title {
+	font-family: cursive;
+	text-align: center;
+	color: orange;
+	font-size: x-large;
+	font-style: bold;
+}
+
+.invalid_message {
+	font-family: cursive;
+	color: red;
+	font-size: small;
+	font-style: italic;
+}
+
+.ok_message {
+	font-family: cursive;
+	color: green;
+	font-style: bold,italic;
+}
+
+.notFound_message {
+	font-family: cursive;
+	color: green;
+	font-style: italic;
+}
+
+.notFound_suggest {
+	font-family: cursive;
+	color: blue;
+	font-style: italic;
+}
+
+.body {
+	font-family: cursive; 
+}
+
+.searchbar {
+	size: 600px;
+}
+
+.gallery_image {
+	width:30%;
+	height:30%;
+	padding-left: 200px;
+}
+
+.single_image {
+	width: 40%;
+	height: 40%;
+	padding-left: 200px;
+}
+
+.addToCarrello_image {
+	float: right;
+	width: 70%;
+	height: 70%;
+}
+
+.carrello_image {
+	float: right;
+	padding-right: 50px;
+}

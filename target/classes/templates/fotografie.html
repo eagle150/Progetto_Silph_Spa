@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Fotografie Fotografo</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Fotografie</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div th:each="fotoPath : ${fotografie_paths}">
+		<img class="gallery_image" th:src="@{${fotoPath}}">
+
+		<form style="float: left; padding-top: 40px; padding-left: 60px;" 
+		  th:action="@{shoppingCart/aggiungiAlCarrelloDalleFotografie}">
+			<input style="display: none;" type="text" th:value="${fotoPath}" name="fotoPath">
+			<button type="submit">
+				<img class="addToCarrello_image" src="/icons/addToCart.png" alt="aggiungi immagine">
+			</button>
+		</form>
+	</div>
+</body>
+</html>

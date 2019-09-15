@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Gallery Fotografie</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title">
+		<h1>Gallery</h1>
+		<a class="carrello_image" th:href="@{/shoppingCart}"><img src="/icons/cart.png" alt="carrello immagine"></a>
+	</div>
+	
+	<div style="padding-left: 300px">
+		<i>seleziona le foto che vorresti utilizzare cliccando sul bottone a lato immagine</i>
+	</div>
+	<br />
+	<br />
+
+	<div th:each="fotoPath : ${files_galleria}">
+		<img class="gallery_image" th:src="@{${fotoPath}}">
+
+		<form style="float: left; padding-top: 40px; padding-left: 60px;" 
+		  th:action="@{shoppingCart/aggiungiAlCarrelloDallaGallery}">
+			<input style="display: none;" type="text" th:value="${fotoPath}" name="fotoPath">
+			<button type="submit">
+				<img class="addToCarrello_image" src="/icons/addToCart.png" alt="aggiungi immagine">
+			</button>
+		</form>
+	</div>
+</body>
+</html>

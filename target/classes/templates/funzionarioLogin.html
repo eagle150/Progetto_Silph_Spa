@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Login Page</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Login Funzionario</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div><i>Inserisci le credenziali</i></div>
+	<form th:action="@{/loginControl}" method="POST"
+		th:object="${funzionario}">
+		<p>
+			<input type="text" th:field="*{email}" /> Email <span
+				th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+		</p>
+		<p>
+			<input type="password" th:field="*{password}" /> Password <span
+				th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+		</p>
+		<p>
+			<input type="submit" value="Accedi"> <span
+				th:text="${credenzialiErrate}"></span>
+		</p>
+	</form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Benvenuto Funzionario</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/homeFunzionario}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<span>&emsp;</span>
+		<a th:href="@{/}">Logout</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Benvenuto</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div><i>Seleziona un'attività</i></div>
+	<br/>
+
+	<div class="ok_message" th:if="${messaggioConferma}" th:text="${messaggioConferma}">messaggio_di_conferma</div>
+
+	<div>
+	<span><a th:href="@{/addFotografo}">Aggiungi fotografo</a></span>
+	</div>
+	
+	<br/>
+
+	<div>
+	<span><a th:href="@{/addFotografia}">Aggiungi fotografia</a></span>
+	</div>
+	
+	<br/>
+
+	<div>
+	<span><a th:href="@{/addAlbum}">Aggiungi album</a></span>
+	</div>
+	
+</body>
+</html>

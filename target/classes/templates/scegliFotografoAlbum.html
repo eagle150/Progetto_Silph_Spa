@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Scelta Fotografo</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/homeFunzionario}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Inserimento Fotografia</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div><i>Scegli un fotografo della SilphSpa oppure <a th:href="@{/addFotografo}" th:text="'crea nuovo fotografo'">
+			</a></i></div>
+	<br/>
+	<div>
+		<ul>
+			<li th:each="fotografo : ${fotografi}" th:object="${fotografo}">
+				<span th:text="*{nome}"></span>
+				<span th:text="*{cognome}"></span>
+				<a th:href="@{'/creaAlbum/'+*{id}}">
+					<button type="button" th:text="Seleziona"></button></a>
+				<br/>
+				<br/>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

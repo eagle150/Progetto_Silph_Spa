@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css" />
+<title>Carrello</title>
+</head>
+<body>
+	<div class="topnavbar">
+		<br/>
+		<a th:href="@{/}">Home</a>
+		<span>&emsp;</span>
+		<a th:href="@{/about}">About</a>
+		<br/>
+	</div>
+	<div class="title"><h1>Carrello</h1></div>
+	
+	<br/>
+	<br/>
+	<br/>
+	
+	<div align="center">
+		<form th:action="@{/gallery}">
+			<input type="button" value="Prosegui navigazione" onClick="history.go(-1);">
+			<span>&emsp;</span>
+			<button type="submit">Vai alla Gallery</button>
+		</form>
+	</div>
+	<br />
+
+	<div>
+		<ul>
+			<li th:each="fotografia : ${fotografie}" th:object="${fotografia}">
+			
+				<a style="font-size: large;" th:text="*{nome}"
+					th:href="@{'/fotografia/' + *{id}}">Title</a>
+				<br/>
+				<a th:href="@{'/shoppingCart/rimuoviFotografia/{id}'(id=${fotografia.id})}" ><button
+					type="button" th:text="Rimuovi">Rimuovi</button></a>
+					
+				<br/>
+				<br/>
+			</li>
+		</ul>
+	</div>
+
+	<div>
+		<a th:if="${fotografie.size() != 0}" th:href="@{'/shoppingCart/checkout'}">
+			<button type="button" th:text="Checkout">Checkout</button>
+		</a>
+		<span th:if="${fotografie.size() == 0}">
+		Per poter proseguire seleziona fotografie dalla	
+		<a th:href="@{/gallery}" th:text="gallery"></a>			
+		</span>
+		
+	</div>
+</body>
+</html>
